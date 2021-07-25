@@ -1,3 +1,4 @@
+
 module.exports = {
 	pages: {
 		index: {
@@ -12,32 +13,32 @@ module.exports = {
 			title: 'Eris',
 			chunks: [ 'chunk-vendors', 'chunk-common', 'eris']
 		},
-		parti: {
+		erisparti: {
 			entry: 'src/pages/eris/parti/main.js',
 			template: 'public/index.html',
 			title: 'Part I',
-			chunks: [ 'chunk-vendors', 'chunk-common', 'parti']
+			chunks: [ 'chunk-vendors', 'chunk-common', 'erisparti']
 		},
-		partii: {
+		erispartii: {
 			entry: 'src/pages/eris/partii/main.js',
 			template: 'public/index.html',
 			title: 'Part II',
-			chunks: [ 'chunk-vendors', 'chunk-common', 'partii']
+			chunks: [ 'chunk-vendors', 'chunk-common', 'erispartii']
 		},
-		partiii: {
+		erispartiii: {
 			entry: 'src/pages/eris/partiii/main.js',
 			template: 'public/index.html',
 			title: 'Part III',
-			chunks: [ 'chunk-vendors', 'chunk-common', 'partiii']
+			chunks: [ 'chunk-vendors', 'chunk-common', 'erispartiii']
 		},
-		partiv: {
+		erispartiv: {
 			entry: 'src/pages/eris/partiv/main.js',
 			template: 'public/index.html',
 			title: 'Part IV',
-			chunks: [ 'chunk-vendors', 'chunk-common', 'partiv']
+			chunks: [ 'chunk-vendors', 'chunk-common', 'erispartiv']
 		}
 	},
 	publicPath: process.env.NODE_ENV === 'production'
     ? '/home/'
-    : '/'
+    : '/',
 }

@@ -15,17 +15,61 @@
         margin: 0 auto;
         padding: 45px;
       }
+      #showonload {
+        display: none;
+      }
+      #hideonload {
+        display: block;
+      }
+      .loader {
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid #3498db;
+        width: 120px;
+        height: 120px;
+        -webkit-animation: spin 2s linear infinite; /* Safari */
+        animation: spin 2s linear infinite;
+      }
+
+      /* Safari */
+      @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    div.wrapper {
+      position: absolute;
+      top:  50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    }
+
     </style>
     <title>DET171</title>
   </head>
   <body>
-    <noscript>
-      <strong>We're sorry but this page doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-    <div class="markdown-body">
-      <a target="_blank" href="https://github.com/DET171/homepage">Edit this page on GitHub</a>
+    <div id="hideonload" class="wrapper">
+      <div class="loader"></div>
     </div>
+    <div id="showonload">
+      <noscript>
+        <strong>We're sorry but this page doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+      </noscript>
+      <div id="app"></div>
+      <!-- built files will be auto injected -->
+      <div class="markdown-body">
+        <a target="_blank" href="https://github.com/DET171/homepage">Edit this page on GitHub</a>
+      </div>
+    </div>
+    <script type="text/javascript">
+      window.onload = function() {
+        document.getElementById('showonload').style.display = 'block';
+        document.getElementById('hideonload').style.display = 'none';
+      }
+    </script>
   </body>
 </html>
