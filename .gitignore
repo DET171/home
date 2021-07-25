@@ -1,6 +1,6 @@
 .DS_Store
 node_modules
-
+deploy.bat
 
 # local env files
 .env.local
