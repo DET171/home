@@ -1,8 +1,10 @@
+// npm run build --production=false
+
 const express = require('express');
 var app = express();
+const path = require('path');
 
+app.use(express.static(path.join(__dirname, '/dist')));
 
-app.use('/home', express.static('dist'));
-const port = 3000
-app.listen(port);
-console.log(`Server running at ${port}`);
+app.listen(3000);
+console.log(`Server running at 3000`);
