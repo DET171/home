@@ -7,11 +7,11 @@ module.exports = {
 			title: 'Index',
 			chunks: [ 'chunk-vendors', 'chunk-common', 'index']
 		},
-		eris: {
+		yuuko: {
 			entry: 'src/pages/eris/main.js',
 			template: 'public/index.html',
-			title: 'Eris',
-			chunks: [ 'chunk-vendors', 'chunk-common', 'eris']
+			title: 'Yuuko',
+			chunks: [ 'chunk-vendors', 'chunk-common', 'yuuko']
 		},
 		yuukoparti: {
 			entry: 'src/pages/eris/parti/main.js',

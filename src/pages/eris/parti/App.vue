@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <h1>Eris &amp; Yuuko: Part I: The Basics</h1>
     <div class="markdown-body">
+      <h1>Eris &amp; Yuuko: Part I: The Basics</h1>
+
       <h1 id="introduction">Introduction</h1>
 <p>Hello there, this sentence will mark the beginning of my first ever article released to the public. In this article, I will be writing how to build a Discord bot with <a href="https://abal.moe/Eris/">Eris</a> and <a href="https://eritbh.me/yuuko/">Yuuko</a>.</p>
 <p>In this tutorial, I will be using the following format for the code:</p>
