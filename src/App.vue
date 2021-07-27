@@ -3,9 +3,9 @@
 
     <h1>DET171's GitHub Homepage</h1>
     <h2>Guides</h2>
-    <a href="eris.html">Eris Bot Tutorial</a>
+    <a href="eris.html">Eris Bot Tutorial</a><br>
     <h2>Misc</h2>
-    <p><i>Currently Empty</i></p>
+    <a href="https://det171.github.io/cube/cfop/index.html">CFOP Algorithms</a><br>
   </div>
 
 </template>

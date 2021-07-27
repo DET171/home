@@ -6,15 +6,10 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "dev": "nodemon --exec npm run serve -e vue,json,js",
-    "test": "npm run lint && npm run serve && npm run build",
-    "web": "npm run build && serve dist"
+    "test": "npm run lint &&  npm run build"
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "monaco-editor-vue": "^1.0.10",
-    "monaco-editor-webpack-plugin": "^4.1.1",
-    "serve": "^12.0.0",
     "vue": "^3.1.5",
     "vue-router": "^3.5.2"
   },
