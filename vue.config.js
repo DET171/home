@@ -13,29 +13,29 @@ module.exports = {
 			title: 'Eris',
 			chunks: [ 'chunk-vendors', 'chunk-common', 'eris']
 		},
-		erisparti: {
+		yuukoparti: {
 			entry: 'src/pages/eris/parti/main.js',
 			template: 'public/index.html',
 			title: 'Part I',
-			chunks: [ 'chunk-vendors', 'chunk-common', 'erisparti']
+			chunks: [ 'chunk-vendors', 'chunk-common', 'yuukoparti']
 		},
-		erispartii: {
+		yuukopartii: {
 			entry: 'src/pages/eris/partii/main.js',
 			template: 'public/index.html',
 			title: 'Part II',
-			chunks: [ 'chunk-vendors', 'chunk-common', 'erispartii']
+			chunks: [ 'chunk-vendors', 'chunk-common', 'yuukopartii']
 		},
-		erispartiii: {
+		yuukopartiii: {
 			entry: 'src/pages/eris/partiii/main.js',
 			template: 'public/index.html',
 			title: 'Part III',
-			chunks: [ 'chunk-vendors', 'chunk-common', 'erispartiii']
+			chunks: [ 'chunk-vendors', 'chunk-common', 'yuukopartiii']
 		},
-		erispartiv: {
+		yuukopartiv: {
 			entry: 'src/pages/eris/partiv/main.js',
 			template: 'public/index.html',
 			title: 'Part IV',
-			chunks: [ 'chunk-vendors', 'chunk-common', 'erispartiv']
+			chunks: [ 'chunk-vendors', 'chunk-common', 'yuukopartiv']
 		}
 	},
 	publicPath: process.env.NODE_ENV === 'production'
