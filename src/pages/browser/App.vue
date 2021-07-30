@@ -15,7 +15,27 @@
         </tr>
         <tr>
           <td>Full ES6 syntax support</td>
-          <td full centre green class="material-icons">{{ es6() }}</td>
+          <td full centre class="material-icons">{{ es6() }}</td>
+        </tr>
+        <tr>
+          <td> <code>text-decoration-style: blink</code> </td>
+          <td full centre class="material-icons">{{ cssblink() }}</td>
+        </tr>
+        <tr>
+          <td> <code>vh</code> (CSS) </td>
+          <td full centre class="material-icons">{{ cssvh() }}</td>
+        </tr>
+        <tr>
+          <td> <code>animation</code> (CSS) </td>
+          <td full centre class="material-icons">{{ cssan() }}</td>
+        </tr>
+        <tr>
+          <td> <code>columns</code> (CSS) </td>
+          <td full centre class="material-icons">{{ csscols() }}</td>
+        </tr>
+        <tr>
+          <td> <code>gap</code> (CSS) </td>
+          <td full centre class="material-icons">{{ cssgap() }}</td>
         </tr>
       </table>
   </div>
@@ -51,6 +71,48 @@ export default {
       }
       else {
         return navigator.platform;
+      }
+    },
+    // check blink
+    cssblink: function () {
+      if (CSS.supports("text-decoration-style", "blink")) {
+        return "check_circle_outline";
+      }
+      else {
+        return "highlight_off";
+      }
+    },
+    // check vh
+    cssvh: function () {
+      if (CSS.supports("font-size", "10vh")) {
+        return "check_circle_outline";
+      }
+      else {
+        return "highlight_off";
+      }
+    },
+    cssan: function () {
+      if (CSS.supports("animation", "mymove 5s infinite")) {
+        return "check_circle_outline";
+      }
+      else {
+        return "highlight_off";
+      }
+    },
+    csscols: function () {
+      if (CSS.supports("columns", "100px 3")) {
+        return "check_circle_outline";
+      }
+      else {
+        return "highlight_off";
+      }
+    },
+    cssgap: function () {
+      if (CSS.supports("gap", "50px")) {
+        return "check_circle_outline";
+      }
+      else {
+        return "highlight_off";
       }
     }
   }
