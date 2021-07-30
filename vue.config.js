@@ -36,6 +36,12 @@ module.exports = {
 			template: 'public/index.html',
 			title: 'Part IV',
 			chunks: [ 'chunk-vendors', 'chunk-common', 'yuukopartiv']
+		},
+		check: {
+			entry: 'src/pages/browser/main.js',
+			template: 'public/index.html',
+			title: 'Browser Check',
+			chunks: [ 'chunk-vendors', 'chunk-common', 'check']
 		}
 	},
 	publicPath: process.env.NODE_ENV === 'production'

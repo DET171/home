@@ -73,6 +73,15 @@ code.hljs {
 }
 
 /* hl.js end */
+[green] {
+  color: #00e00b;
+}
+[full] {
+  width: 100%;
+}
+[half] {
+  width: 50%;
+}
 a:active {
   color: blue;
 }
@@ -87,6 +96,9 @@ a[target="_blank"]::after {
   color: #2c3e50;
   margin: 15px;
   padding: 30px;
+}
+.block {
+  display: block;
 }
 .markdown-body {
 	box-sizing: border-box;

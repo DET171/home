@@ -5,7 +5,9 @@
     <h2>Guides</h2>
     <a href="yuuko.html">Eris &amp; Yuuko Bot Tutorial</a><br>
     <h2>Misc</h2>
-    <a href="https://det171.github.io/cube/cfop/index.html">CFOP Algorithms</a><br>
+
+    <a class='block' href="https://det171.github.io/cube/cfop/index.html">CFOP Algorithms</a><br>
+    <a class='block' href="check.html">Browser Information</a><br>
   </div>
 
 </template>
@@ -18,6 +20,7 @@ export default {
 
 <style scoped>
 @import '../def.css';
+
 .center {
   text-align: center;
 }
