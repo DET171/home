@@ -6,7 +6,7 @@
       <a href="#" @click="getPkg()"><img class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
     </form>
     <div class="results">
-      <p>Search results for {{ search }}</p>
+      <p>NPM Search results for: {{ search }}</p>
       <table full>
         <thead full>
   <tr>
@@ -17,7 +17,7 @@
 </thead>
 <tbody full>
   <tr  v-for="(pkg, index) in pkgs" :key="index" full>
-    <td>{{ pkg.package.name }}</td>
+    <td> <a :href="pkg.package.links.npm" target="_blank">{{ pkg.package.name }}</a> </td>
     <td>{{ pkg.package.description }}</td>
     <td>{{ pkg.package.version }}</td>
   </tr>
@@ -34,7 +34,7 @@
 
 </template>
 <script>
-import axios from 'axios'
+import axios from 'axios';
 
 export default {
   name: 'App',
