@@ -42,6 +42,12 @@ module.exports = {
 			template: 'public/index.html',
 			title: 'Browser Check',
 			chunks: [ 'chunk-vendors', 'chunk-common', 'check']
+		},
+		npmsearch: {
+			entry: 'src/pages/search/main.js',
+			template: 'public/index.html',
+			title: 'Search NPM',
+			chunks: [ 'chunk-vendors', 'chunk-common', 'npmsearch']
 		}
 	},
 	publicPath: process.env.NODE_ENV === 'production'

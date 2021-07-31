@@ -8,6 +8,7 @@
 
     <a class='block' href="https://det171.github.io/cube/cfop/index.html">CFOP Algorithms</a><br>
     <a class='block' href="check.html">Browser Information</a><br>
+    <a class='block' href="npmsearch.html">Search NPM</a><br>
   </div>
 
 </template>
