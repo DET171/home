@@ -46,7 +46,7 @@ export default {
   },
   methods: {
     getPkg: function() {
-      axios.get(`http://registry.npmjs.com/-/v1/search?text=${this.search}`)
+      axios.get(`https://registry.npmjs.com/-/v1/search?text=${this.search}`)
       .then(response => {
         var pkgs = response.data;
         this.pkgs = pkgs.objects;
