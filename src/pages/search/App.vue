@@ -55,7 +55,7 @@ export default {
     }
   },
   created() {
-    axios.get(`http://registry.npmjs.com/-/v1/search?text=cross+spawn`)
+    axios.get(`https://registry.npmjs.com/-/v1/search?text=cross+spawn`)
     .then(response => {
       var pkgs = response.data;
       this.pkgs = pkgs.objects;
