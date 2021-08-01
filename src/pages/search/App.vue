@@ -21,7 +21,7 @@
     <td>{{ index + 1 }}</td>
     <td> <a :href="pkg.package.links.npm" target="_blank">{{ pkg.package.name }}</a> </td>
     <td>{{ pkg.package.description }}</td>
-    <td>{{ pkg.package.version }}</td>
+    <td><code>{{ pkg.package.version }}</code></td>
   </tr>
 </tbody>
     <tfoot full>

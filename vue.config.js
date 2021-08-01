@@ -48,6 +48,12 @@ module.exports = {
 			template: 'public/index.html',
 			title: 'Search NPM',
 			chunks: [ 'chunk-vendors', 'chunk-common', 'npmsearch']
+		},
+		quote: {
+			entry: 'src/pages/quotes/main.js',
+			template: 'public/index.html',
+			title: 'Quotes',
+			chunks: [ 'chunk-vendors', 'chunk-common', 'quote']
 		}
 	},
 	publicPath: process.env.NODE_ENV === 'production'
