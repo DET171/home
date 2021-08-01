@@ -2,7 +2,7 @@
   <div class="markdown-body">
     <h1>Search NPM</h1>
     <div class="ui icon input fluid">
-      <input v-model="search" type="text" placeholder="Search...">
+      <input v-on:keyup.enter="getPkg()" v-model="search" type="text" placeholder="Search...">
       <i @click="getPkg()" class="inverted circular search link icon"></i>
     </div>
     <div class="results ui container">

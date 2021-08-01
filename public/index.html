@@ -7,7 +7,6 @@
     <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.1.0/build/highlight.min.js"></script>
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
-    <script>hljs.highlightAll();</script>
     <style>
       .markdown-body {
         box-sizing: border-box;
@@ -73,6 +72,7 @@
       window.onload = function() {
         document.getElementById('showonload').style.display = 'block';
         document.getElementById('hideonload').style.display = 'none';
+        hljs.highlightAll();
       }
     </script>
   </body>
