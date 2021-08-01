@@ -5,7 +5,7 @@
       <input v-on:keyup.enter="getPkg()" v-model="search" type="text" placeholder="Search...">
       <i @click="getPkg()" class="inverted circular search link icon"></i>
     </div>
-    <div class="results ui container">
+    <div class="results ui container" v-if="show">
       <p>NPM Search results for: {{ search }}</p>
       <table class="ui celled striped table">
         <thead full>
@@ -43,25 +43,29 @@ export default {
   data: function () {
     return {
       pkgs: [],
-      search: 'cross spawn'
+      search: 'cross spawn',
+      show: false
     }
   },
   methods: {
     getPkg: function() {
+      this.show = false;
       axios.get(`https://registry.npmjs.com/-/v1/search?text=${this.search}`)
       .then(response => {
         var pkgs = response.data;
         this.pkgs = pkgs.objects;
         this.total = pkgs.total;
+        this.show = true;
       })
     }
   },
-  created() {
+  mounted() {
     axios.get(`https://registry.npmjs.com/-/v1/search?text=cross+spawn`)
     .then(response => {
       var pkgs = response.data;
       this.pkgs = pkgs.objects;
       this.total = pkgs.total;
+      this.show = true;
     })
   }
 }
