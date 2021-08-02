@@ -54,6 +54,12 @@ module.exports = {
 			template: 'public/index.html',
 			title: 'Quotes',
 			chunks: [ 'chunk-vendors', 'chunk-common', 'quote']
+		},
+		random: {
+			entry: 'src/pages/random/main.js',
+			template: 'public/index.html',
+			title: 'Random Number Generator',
+			chunks: [ 'chunk-vendors', 'chunk-common', 'random']
 		}
 	},
 	publicPath: process.env.NODE_ENV === 'production'
