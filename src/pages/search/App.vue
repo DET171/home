@@ -12,6 +12,7 @@
   <tr>
     <th>No.</th>
     <th>Package Name</th>
+    <th>Date</th>
     <th>Description</th>
     <th>Version</th>
   </tr>
@@ -20,13 +21,17 @@
   <tr  v-for="(pkg, index) in pkgs" :key="index" full>
     <td>{{ index + 1 }}</td>
     <td> <a :href="pkg.package.links.npm" target="_blank">{{ pkg.package.name }}</a> </td>
+    <td>{{ date(pkg.package.date) }}</td>
     <td>{{ pkg.package.description }}</td>
     <td><code>{{ pkg.package.version }}</code></td>
   </tr>
 </tbody>
     <tfoot full>
   <tr>
-		<th colspan="100%">{{ total }} packages found</th>
+		<th colspan="100%">
+      {{ total }} packages found <br>
+      Last fetched at {{ time }}
+    </th>
 	</tr>
 </tfoot>
 </table>
@@ -57,6 +62,9 @@ export default {
         this.total = pkgs.total;
         this.show = true;
       })
+    },
+    date: (date) => {
+      return new Date(date).toString();
     }
   },
   mounted() {
@@ -65,6 +73,7 @@ export default {
       var pkgs = response.data;
       this.pkgs = pkgs.objects;
       this.total = pkgs.total;
+      this.time = pkgs.time;
       this.show = true;
     })
   }

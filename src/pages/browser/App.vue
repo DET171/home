@@ -57,7 +57,7 @@ export default {
     },
     // es6 check end
     appVersion: function () {
-      return navigator.appVersion;
+      return navigator.userAgentData.brands[2].brand + ' ' + navigator.userAgentData.brands[2].version;
     },
     vendor: function () {
       return navigator.vendor;
