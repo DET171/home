@@ -1,36 +1,41 @@
 <template>
   <div class="markdown-body">
-    <h1>Search NPM</h1>
+    <h1>Search GitHub Repositories</h1>
     <div class="ui icon input fluid">
       <input v-on:keyup.enter="getPkg()" v-model="search" type="text" placeholder="Search...">
       <i @click="getPkg()" class="inverted circular search link icon"></i>
     </div>
     <div class="results ui container" v-if="show">
-      <p>NPM Search results for: {{ search }}</p>
+      <p>GitHub repository Search results for: {{ search }}</p>
       <table class="ui celled striped table">
         <thead full>
   <tr>
     <th>No.</th>
-    <th>Package Name</th>
-    <th>Date</th>
+    <th>Repository Name</th>
+    <th>Forks</th>
+    <th>Issues</th>
+    <th>Author</th>
     <th>Description</th>
-    <th>Version</th>
+    <th>Language</th>
+    <th>License</th>
   </tr>
 </thead>
 <tbody full>
   <tr  v-for="(pkg, index) in pkgs" :key="index" full>
     <td>{{ index + 1 }}</td>
-    <td> <a :href="pkg.package.links.npm" target="_blank">{{ pkg.package.name }}</a> </td>
-    <td>{{ date(pkg.package.date) }}</td>
-    <td>{{ pkg.package.description }}</td>
-    <td><code>{{ pkg.package.version }}</code></td>
+    <td> <a :href="pkg.html_url" target="_blank">{{ pkg.name }} ({{ pkg.full_name }})</a> </td>
+    <td>{{ pkg.forks }}</td>
+    <td>{{ pkg.open_issues }}</td>
+    <td> <a target="_blank" :href="'https://github.com/' + pkg.owner.login">{{ pkg.owner.login }}</a> </td>
+    <td>{{ pkg.description }}</td>
+    <td>{{ pkg.language }}</td>
+    <td>{{ license(pkg) }}</td>
   </tr>
 </tbody>
     <tfoot full>
   <tr>
 		<th colspan="100%">
-      {{ total }} packages found <br>
-      Last fetched at {{ time }}
+
     </th>
 	</tr>
 </tfoot>
@@ -48,32 +53,35 @@ export default {
   data: function () {
     return {
       pkgs: [],
-      search: 'cross spawn',
+      search: 'got',
       show: false
     }
   },
   methods: {
     getPkg: function() {
       this.show = false;
-      axios.get(`https://registry.npmjs.com/-/v1/search?text=${this.search}`)
+      axios.get(`https://api.github.com/search/repositories?q=${this.search}`)
       .then(response => {
         var pkgs = response.data;
-        this.pkgs = pkgs.objects;
-        this.total = pkgs.total;
+        this.pkgs = pkgs.items;
         this.show = true;
       })
     },
-    date: (date) => {
-      return new Date(date).toString();
+    license: (repo) => {
+      if (repo.license) {
+        return repo.license.name;
+      }
+      else {
+        return "None";
+      }
     }
   },
   mounted() {
-    axios.get(`https://registry.npmjs.com/-/v1/search?text=cross+spawn`)
+    axios.get(`https://api.github.com/search/repositories?q=${this.search}`)
     .then(response => {
       var pkgs = response.data;
-      this.pkgs = pkgs.objects;
-      this.total = pkgs.total;
-      this.time = pkgs.time;
+      console.log(pkgs)
+      this.pkgs = pkgs.items;
       this.show = true;
     })
   }

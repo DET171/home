@@ -13,29 +13,29 @@ module.exports = {
 			title: 'Yuuko',
 			chunks: [ 'chunk-vendors', 'chunk-common', 'yuuko']
 		},
-		yuukoparti: {
+		yuuko_parti: {
 			entry: 'src/pages/eris/parti/main.js',
 			template: 'public/index.html',
 			title: 'Part I',
-			chunks: [ 'chunk-vendors', 'chunk-common', 'yuukoparti']
+			chunks: [ 'chunk-vendors', 'chunk-common', 'yuuko_parti']
 		},
-		yuukopartii: {
+		yuuko_partii: {
 			entry: 'src/pages/eris/partii/main.js',
 			template: 'public/index.html',
 			title: 'Part II',
-			chunks: [ 'chunk-vendors', 'chunk-common', 'yuukopartii']
+			chunks: [ 'chunk-vendors', 'chunk-common', 'yuuko_partii']
 		},
-		yuukopartiii: {
+		yuuko_partiii: {
 			entry: 'src/pages/eris/partiii/main.js',
 			template: 'public/index.html',
 			title: 'Part III',
-			chunks: [ 'chunk-vendors', 'chunk-common', 'yuukopartiii']
+			chunks: [ 'chunk-vendors', 'chunk-common', 'yuuko_partiii']
 		},
-		yuukopartiv: {
+		yuuko_partiv: {
 			entry: 'src/pages/eris/partiv/main.js',
 			template: 'public/index.html',
 			title: 'Part IV',
-			chunks: [ 'chunk-vendors', 'chunk-common', 'yuukopartiv']
+			chunks: [ 'chunk-vendors', 'chunk-common', 'yuuko_partiv']
 		},
 		check: {
 			entry: 'src/pages/browser/main.js',
@@ -43,11 +43,11 @@ module.exports = {
 			title: 'Browser Check',
 			chunks: [ 'chunk-vendors', 'chunk-common', 'check']
 		},
-		npmsearch: {
-			entry: 'src/pages/search/main.js',
+		npm_search: {
+			entry: 'src/pages/npm/main.js',
 			template: 'public/index.html',
 			title: 'Search NPM',
-			chunks: [ 'chunk-vendors', 'chunk-common', 'npmsearch']
+			chunks: [ 'chunk-vendors', 'chunk-common', 'npm_search']
 		},
 		quote: {
 			entry: 'src/pages/quotes/main.js',
@@ -60,6 +60,12 @@ module.exports = {
 			template: 'public/index.html',
 			title: 'Random Number Generator',
 			chunks: [ 'chunk-vendors', 'chunk-common', 'random']
+		},
+		repo_search: {
+			entry: 'src/pages/ghs/main.js',
+			template: 'public/index.html',
+			title: 'Search GitHub Repositories',
+			chunks: [ 'chunk-vendors', 'chunk-common', 'repo_search']
 		}
 	},
 	publicPath: process.env.NODE_ENV === 'production'

@@ -10,8 +10,9 @@
     <a class='block' href="check.html">Browser Information</a><br>
     <a class='block' href="random.html">Random Number Generator</a><br>
     <h2>REST API Projects</h2>
-    <a class='block' href="npmsearch.html">Search NPM</a><br>
+    <a class='block' href="npm_search.html">Search NPM</a><br>
     <a class='block' href="quote.html">Quotes</a><br>
+    <a class='block' href="repo_search.html">Search GitHub Repositories</a><br>
 
   </div>
 
