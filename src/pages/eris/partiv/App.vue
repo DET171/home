@@ -3,9 +3,11 @@
     <div class="markdown-body">
       <h1>Eris &amp; Yuuko: Part IV: The Guild Object + FUN Commands</h1>
       <p>In this post, I will be teaching you how to write a <code>guild</code> command. </p>
-<h1 id="the-guild-command">The <code>guild</code> command</h1>
-<p>Here&#39;s the code As usual, here&#39;s the code (put it in <code>./commands/guild.js</code>):</p>
-<pre><code class="lang-js"><span class="hljs-keyword">const</span> { Command } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'yuuko'</span>);
+      <h1 id="the-guild-command">
+        The <code>guild</code> command
+      </h1>
+      <p>Here&#39;s the code As usual, here&#39;s the code (put it in <code>./commands/guild.js</code>):</p>
+      <pre><code class="lang-js"><span class="hljs-keyword">const</span> { Command } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'yuuko'</span>);
 <span class="hljs-keyword">const</span> moment = <span class="hljs-built_in">require</span>(<span class="hljs-string">'moment'</span>);
 <span class="hljs-built_in">module</span>.exports = <span class="hljs-keyword">new</span> Command([<span class="hljs-string">'guild'</span>, <span class="hljs-string">'server'</span>], (message) =&gt; {
     <span class="hljs-keyword">const</span> guild = message.channel.guild;
@@ -39,10 +41,12 @@
     });
 });
 </code></pre>
-<p>Again, this is quite simple. This is mostly properties of the guild object. More can be found <a href="https://abal.moe/Eris/docs/Guild">here</a>. I will not be covering this in detail, as I will also be covering a <code>roll</code> command, which is more complex.</p>
-<h1 id="the-roll-command">The <code>roll</code> command</h1>
-<p>As usual, here&#39;s the code (put it in <code>./commands/roll.js</code>):</p>
-<pre><code class="lang-js"><span class="hljs-keyword">const</span> { Command } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'yuuko'</span>);
+      <p>Again, this is quite simple. This is mostly properties of the guild object. More can be found <a href="https://abal.moe/Eris/docs/Guild">here</a>. I will not be covering this in detail, as I will also be covering a <code>roll</code> command, which is more complex.</p>
+      <h1 id="the-roll-command">
+        The <code>roll</code> command
+      </h1>
+      <p>As usual, here&#39;s the code (put it in <code>./commands/roll.js</code>):</p>
+      <pre><code class="lang-js"><span class="hljs-keyword">const</span> { Command } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'yuuko'</span>);
 <span class="hljs-built_in">require</span>(<span class="hljs-string">'dotenv'</span>).config();
 <span class="hljs-built_in">module</span>.exports = <span class="hljs-keyword">new</span> Command([<span class="hljs-string">'roll'</span>, <span class="hljs-string">'rolladie'</span>, <span class="hljs-string">'rolladice'</span>], (message, args) =&gt; {
     <span class="hljs-keyword">const</span> arg = args.join(<span class="hljs-string">' '</span>);
@@ -83,18 +87,20 @@
     }
 });
 </code></pre>
-<p>Now, let me explain.
-A user is supposed to type the command in the followoing format, assuming the prefix is <code>!</code>:</p>
-<pre><code class="lang-bash"><span class="hljs-addition">!roll</span>
+      <p>
+        Now, let me explain.
+        A user is supposed to type the command in the followoing format, assuming the prefix is <code>!</code>:
+      </p>
+      <pre><code class="lang-bash"><span class="hljs-addition">!roll</span>
 </code></pre>
-<pre><code class="lang-bash">!roll <span class="hljs-number">10</span>d6
+      <pre><code class="lang-bash">!roll <span class="hljs-number">10</span>d6
 # or !roll <span class="hljs-number">10</span> d <span class="hljs-number">6</span>
 </code></pre>
-<p>btw there are few aliases for this command:</p>
-<pre><code class="lang-js">[<span class="hljs-symbol">'roll</span>', <span class="hljs-symbol">'rolladie</span>', <span class="hljs-symbol">'rolladice</span>']
+      <p>btw there are few aliases for this command:</p>
+      <pre><code class="lang-js">[<span class="hljs-symbol">'roll</span>', <span class="hljs-symbol">'rolladie</span>', <span class="hljs-symbol">'rolladice</span>']
 </code></pre>
-<p>We check for arguments, and if there are none, we roll a random number from 1 to 6 and send it in an embed:</p>
-<pre><code class="lang-js"><span class="hljs-selector-tag">if</span>(!args.length) {
+      <p>We check for arguments, and if there are none, we roll a random number from 1 to 6 and send it in an embed:</p>
+      <pre><code class="lang-js"><span class="hljs-selector-tag">if</span>(!args.length) {
         <span class="hljs-selector-tag">message</span><span class="hljs-selector-class">.channel</span><span class="hljs-selector-class">.createMessage</span>({
             <span class="hljs-attribute">embed</span>: {
                 <span class="hljs-attribute">title</span>: <span class="hljs-built_in">`${message.author.username} rolled a die!`</span>,
@@ -106,12 +112,14 @@ A user is supposed to type the command in the followoing format, assuming the pr
         });
     }
 </code></pre>
-<p>And if there are arguments, we join the arguments:</p>
-<pre><code class="lang-js"><span class="hljs-keyword">const</span> arg = args.<span class="hljs-keyword">join</span>(<span class="hljs-string">' '</span>);
+      <p>And if there are arguments, we join the arguments:</p>
+      <pre><code class="lang-js"><span class="hljs-keyword">const</span> arg = args.<span class="hljs-keyword">join</span>(<span class="hljs-string">' '</span>);
 </code></pre>
-<p>and split it by <code>d</code>.
-We first initialize an empty array<code>[]</code>, use the <code>for</code> loop to roll a random number between the number the user specified (if not, the default is <code>6</code>) and push the result to the array the number of times the user specified.<br>After that has been completed, we join the array with spaces and send it in an embed:</p>
-<pre><code class="lang-js"><span class="hljs-keyword">else</span> {
+      <p>
+        and split it by <code>d</code>.
+        We first initialize an empty array<code>[]</code>, use the <code>for</code> loop to roll a random number between the number the user specified (if not, the default is <code>6</code>) and push the result to the array the number of times the user specified.<br>After that has been completed, we join the array with spaces and send it in an embed:
+      </p>
+      <pre><code class="lang-js"><span class="hljs-keyword">else</span> {
         <span class="hljs-keyword">try</span> {
             <span class="hljs-keyword">const</span> num = arg.trim().split(<span class="hljs-string">'d'</span>);
             <span class="hljs-keyword">const</span> times = <span class="hljs-built_in">parseInt</span>(num[<span class="hljs-number">0</span>]);
@@ -136,12 +144,17 @@ We first initialize an empty array<code>[]</code>, use the <code>for</code> loop
         }
     }
 </code></pre>
-<p>EZPZ.
-PS tell me in the comments if you have any trouble.</p>
-<h1 id="conclusion">Conclusion</h1>
-<p>Woohoo! We made a <code>fun</code> command today, and also accessed the <code>guild</code> object. That&#39;s about the end of it for today.
-Take care and goodbye!</p>
-
+      <p>
+        EZPZ.
+        PS tell me in the comments if you have any trouble.
+      </p>
+      <h1 id="conclusion">
+        Conclusion
+      </h1>
+      <p>
+        Woohoo! We made a <code>fun</code> command today, and also accessed the <code>guild</code> object. That&#39;s about the end of it for today.
+        Take care and goodbye!
+      </p>
     </div>
   </div>
 </template>
@@ -149,8 +162,8 @@ Take care and goodbye!</p>
 <script>
 
 export default {
-  name: 'About'
-}
+	name: 'About',
+};
 </script>
 
 <style>

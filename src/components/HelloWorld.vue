@@ -134,15 +134,15 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: {
-      type: String,
-      default: '',
-      required: true
-    }
-  }
-}
+	name: 'HelloWorld',
+	props: {
+		msg: {
+			type: String,
+			default: '',
+			required: true,
+		},
+	},
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
