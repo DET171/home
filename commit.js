@@ -26,7 +26,7 @@ const { exec } = require('child_process');
 		console.log(`stdout: ${stdout}`);
 	});
 	// push
-	await exec('git push origin master', (error, stdout, stderr) => {
+	await exec('git push origin --all', (error, stdout, stderr) => {
 		if (error) {
 			console.log(`error: ${error.message}`);
 			return;
