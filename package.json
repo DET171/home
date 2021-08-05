@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --modern",
     "lint": "vue-cli-service lint",
-    "test": "npm run lint &&  npm run build"
+    "test": "npm run lint &&  npm run build",
+    "commit": "node commit.js"
   },
   "dependencies": {
     "@highlightjs/vue-plugin": "^1.0.2",
