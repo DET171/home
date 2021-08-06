@@ -7,6 +7,12 @@
     <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.1.0/build/highlight.min.js"></script>
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js" charset="utf-8"></script>
     <style>
       .markdown-body {
         box-sizing: border-box;
@@ -31,6 +37,12 @@
     a[target="_blank"]::after {
       content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==);
       margin: 0 3px 0 5px;
+    }
+    [@click] {
+      cursor: pointer;
+    }
+    * {
+      line-height: 1.6 !important;
     }
     </style>
     <title>DET171</title>

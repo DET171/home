@@ -38,11 +38,8 @@
             full
           >
             <td>{{ index + 1 }}</td>
-            <td>
-              <a
-                :href="pkg.html_url"
-                target="_blank"
-              >{{ pkg.name }} ({{ pkg.full_name }})</a>
+            <td @click="repo(license(pkg), pkg)">
+              {{ pkg.name }} ({{ pkg.full_name }})
             </td>
             <td>{{ pkg.forks }}</td>
             <td>{{ pkg.open_issues }}</td>
@@ -65,17 +62,59 @@
       </table>
     </div>
   </div>
+  <Modal
+    v-show="modalShow"
+    @close="closeModal()"
+  >
+    <template
+      #header
+    >
+      <h1 class="ui header">
+        {{ name }}
+      </h1>
+      <br>
+      <a
+        :href="url"
+        target="_blank"
+        style="display: block;"
+      >View on GitHub</a>
+    </template>
+    <template #body>
+      <div class="ui stackable four column grid">
+        <div class="column">
+          <p>License: {{ li }}</p>
+          <p>Language: {{ lang }}</p>
+        </div>
+        <div class="column">
+          <p>Created at: {{ created }}</p>
+        </div>
+        <div class="column" />
+        <div class="column" />
+      </div>
+    </template>
+    <template #footer>
+      {{
+        new Date().getHours() + ':' + new Date().getMinutes()
+      }}
+    </template>
+  </Modal>
 </template>
 <script>
 import axios from 'axios';
+import Modal from '../../components/Modal.vue';
 
 export default {
 	name: 'App',
+	components: {
+		Modal,
+	},
 	data: function() {
 		return {
 			pkgs: [],
+			modalShow: false,
 			search: 'got',
 			show: false,
+			li: 'None',
 		};
 	},
 	mounted() {
@@ -85,6 +124,10 @@ export default {
 				console.log(pkgs);
 				this.pkgs = pkgs.items;
 				this.show = true;
+			});
+		axios.get('https://raw.githubusercontent.com/ozh/github-colors/master/colors.json')
+			.then(json => {
+				this.colors = json.data;
 			});
 	},
 	methods: {
@@ -97,13 +140,25 @@ export default {
 					this.show = true;
 				});
 		},
-		license: (repo) => {
+		license: function(repo) {
 			if (repo.license) {
 				return repo.license.name;
 			}
 			else {
 				return 'None';
 			}
+		},
+		repo: function(license, repo) {
+			this.modalShow = true;
+			this.li = license;
+			this.url = repo.html_url;
+			this.name = `${repo.name} (${repo.full_name})`;
+			this.lang = repo.language;
+			const date = new Date(repo.created_at).toString();
+			this.created = date;
+		},
+		closeModal: function() {
+			this.modalShow = false;
 		},
 	},
 };
