@@ -83,12 +83,16 @@
       <div class="ui stackable four column grid">
         <div class="column">
           <p>License: {{ li }}</p>
-          <p>Language: {{ lang }}</p>
+          <p>
+            Language: {{ lang }}
+          </p>
         </div>
         <div class="column">
           <p>Created at: {{ created }}</p>
         </div>
-        <div class="column" />
+        <div class="column">
+          <p>Owner: <a :href="ownerurl"> {{ owner }}</a></p>
+        </div>
         <div class="column" />
       </div>
     </template>
@@ -156,6 +160,8 @@ export default {
 			this.lang = repo.language;
 			const date = new Date(repo.created_at).toString();
 			this.created = date;
+			this.ownerurl = repo.owner.html_url;
+			this.owner = repo.owner.login;
 		},
 		closeModal: function() {
 			this.modalShow = false;
@@ -172,5 +178,8 @@ input[v-model=search] {
 }
 .results {
   margin: 20px;
+}
+[@click] {
+  cursor: pointer !important;
 }
 </style>

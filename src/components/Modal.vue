@@ -3,6 +3,7 @@ export default {
 	name: 'Modal',
 	methods: {
 		close() {
+			// eslint-disable-next-line
 			this.$emit('close');
 		},
 	},
@@ -72,7 +73,7 @@ export default {
   .modal {
     background: #FFFFFF;
     box-shadow: 2px 2px 20px 1px;
-    overflow: auto !important;;
+    overflow-x: none;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -102,6 +103,7 @@ export default {
   .modal-body {
     position: relative;
     padding: 35px;
+    overflow-x: none;
   }
 
   .btn-close {
