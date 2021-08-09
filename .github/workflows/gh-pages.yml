@@ -31,9 +31,10 @@
         
         - name: deploy
           uses: peaceiris/actions-gh-pages@v3
-          env:
-            ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
           with:
            github_token: ${{ secrets.ACCESS_TOKEN }}
            publish_dir: ./dist
+          env:
+           ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+         
          
