@@ -122,7 +122,7 @@ export default {
 		};
 	},
 	mounted() {
-		axios.get(`https://api.github.com/search/repositories?q=${this.search}`)
+		axios.get(`https://thingproxy.dustyidk.repl.co/fetch/api.github.com/search/repositories?q=got${this.search}`)
 			.then(response => {
 				var pkgs = response.data;
 				console.log(pkgs);
@@ -137,7 +137,7 @@ export default {
 	methods: {
 		getPkg: function() {
 			this.show = false;
-			axios.get(`https://api.github.com/search/repositories?q=${this.search}`)
+			axios.get(`https://thingproxy.dustyidk.repl.co/fetch/api.github.com/search/repositories?q=got${this.search}`)
 				.then(response => {
 					var pkgs = response.data;
 					this.pkgs = pkgs.items;
